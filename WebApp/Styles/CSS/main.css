@@ -1,0 +1,150 @@
+#date-time {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#date-time #date {
+  font-size: 20pt;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+
+#date-time #time #HH-MM {
+  font-size: 40pt;
+  font-weight: 300;
+}
+
+#date-time #time #SS {
+  font-size: 15pt;
+  font-weight: 100;
+  margin-bottom: 8px;
+  margin-left: 2px;
+  opacity: 0.5;
+}
+
+#welcome-message {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+}
+
+#welcome-message #message {
+  font-size: 30pt;
+  font-weight: 100;
+  text-align: center;
+}
+
+#spotify-information {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: 0.4s;
+  transition-timing-function: ease-in;
+}
+
+#spotify-information.show {
+  top: 50%;
+  opacity: 1;
+  transition-timing-function: ease-out;
+}
+
+#spotify-information #album-art {
+  width: 150px;
+}
+
+#spotify-information #artist {
+  font-size: 30pt;
+  font-weight: 300;
+  text-align: center;
+}
+
+#spotify-information #track {
+  font-size: 18pt;
+  font-weight: 100;
+  text-align: center;
+}
+
+#spotify-information #progress {
+  padding: 10px 0;
+}
+
+#spotify-information #progress #elapsed {
+  font-size: 15pt;
+  font-weight: 100;
+  opacity: 0.8;
+  text-align: center;
+}
+
+#spotify-information #progress #total {
+  font-size: 15pt;
+  font-weight: 300;
+  text-align: center;
+}
+
+#spotify-information #progress #spacer {
+  padding: 0 4px;
+  opacity: 0.8;
+}
+
+#weather-forecast {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#weather-forecast #location, #weather-forecast #current {
+  width: 100%;
+}
+
+#weather-forecast #location #city {
+  font-size: 40pt;
+  font-weight: 300;
+}
+
+#weather-forecast #location i {
+  font-size: 40pt;
+  margin-top: 5px;
+}
+
+#weather-forecast #current #weathericon {
+  font-size: 25pt;
+  padding: 0px 10px;
+}
+
+#weather-forecast #current #temperature-wrapper {
+  padding: 0px 10px;
+}
+
+#weather-forecast #current #temperature-wrapper #temperature {
+  font-size: 20pt;
+  font-weight: 300;
+}
+
+#weather-forecast #current #temperature-wrapper .mdi {
+  font-size: 15pt;
+  font-weight: 100;
+  margin-bottom: 10px;
+}
+
+html, body, #main-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  height: calc(100% - 40px);
+  width: calc(100% - 40px);
+  color: white;
+  background-color: #222222;
+  font-family: "Lato", sans-serif;
+}
+
+/*# sourceMappingURL=main.css.map */
