@@ -33,7 +33,7 @@ app.get('/', function(req, res, next) {
 
 // Smart Mirror Home
 app.get('/home', function(req, res, next) {
-    res.redirect('localhost');
+    res.redirect('localhost:80');
 });
 
 // Weather
