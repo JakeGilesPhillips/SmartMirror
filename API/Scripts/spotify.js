@@ -3,7 +3,7 @@ const query = require('querystring');
 
 var client_id = '5dee9a8e192844db98c1936d0a2e58b3';
 var client_secret = 'b0710537ad47441a8345aaf429880396';
-var callback_uri = 'http://92.238.31.112:50501/spotify/callback';
+var callback_uri = 'localhost:3000/spotify/callback';
 var scopes = 'user-read-private user-read-email user-read-playback-state';
 
 var access_token = '';
