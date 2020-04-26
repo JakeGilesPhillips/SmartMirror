@@ -3,9 +3,9 @@ $(document).ready(() => {
 });
 
 var spotify = {
-    refresh: 'http://192.168.0.104:3000/spotify/refresh',
-    playing: 'http://192.168.0.104:3000/spotify/user/playing',
-    playstate: 'http://192.168.0.104:3000/spotify/user/playstate'
+    refresh: 'http://192.168.0.17:3000/spotify/refresh',
+    playing: 'http://192.168.0.17:3000/spotify/user/playing',
+    playstate: 'http://192.168.0.17:3000/spotify/user/playstate'
 };
 var currentID = null;
 
@@ -53,7 +53,7 @@ function refreshSpotifyLogin() {
             }
             else {
                 // Else Refresh page to reinstate login
-                window.location.href = 'http://192.168.0.104:3000';
+                window.location.href = 'http://192.168.0.17:3000';
             }
         }
     });
