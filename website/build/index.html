@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Smart Mirror</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <link rel="icon" type="image/png" href="./images/icon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="./styles/flex.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typer-js@5.0.1/typer.min.js"></script>
+  </head>
+  <body>
+    <div id="main-wrapper">
+      <link rel="stylesheet" href="./styles/datetime.css">
+      <div class="flex column start-h start-v" id="date-time">
+        <div class="flex row start-h center-v" id="date"><span id="long-date"></span></div>
+        <div class="flex row start-h end-v" id="time"><span id="HH-MM"></span><span id="SS"></span></div>
+      </div>
+      <script src="./scripts/datetime.js"></script>
+      <link rel="stylesheet" href="./styles/weather.css">
+      <div class="flex column end-h start-v" id="weather-forecast">
+        <div class="flex row between" id="location"><span id="city"></span><i class="material-icons">location_on</i></div>
+        <div class="flex row end-h" id="current"><span id="weathericon"></span>
+          <div class="flex-row center-vh" id="temperature-wrapper"><span id="temperature"></span><span class="mdi mdi-temperature-celsius"></span></div>
+        </div>
+      </div>
+      <script src="./scripts/weather.js"></script>
+      <link rel="stylesheet" href="./styles/spotify.css">
+      <div class="flex column center-vh" id="spotify-information"><img id="album-art"><span id="artist"></span><span id="track"></span>
+        <div class="flex row center-vh" id="progress"><span id="elapsed"></span><span id="spacer">/</span><span id="total"></span></div>
+      </div>
+      <script src="./scripts/spotify.js"></script>
+      <link rel="stylesheet" href="./styles/speech.css">
+      <div class="flex center-vh" id="speech-recognition"><span id="listening">Listening...</span></div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+      <script src="./scripts/speech.js"></script>
+      <link rel="stylesheet" href="./styles/messages.css">
+      <div class="flex center-vh" id="welcome-message"><span id="message"></span></div>
+      <script src="./scripts/messages.js"></script>
+    </div>
+  </body>
+</html>

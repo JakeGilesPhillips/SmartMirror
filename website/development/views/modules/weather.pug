@@ -1,0 +1,15 @@
+append styles 
+  link(rel='stylesheet', href='./styles/weather.css')
+
+#weather-forecast.flex.column.end-h.start-v
+    #location.flex.row.between
+        span#city
+        i.material-icons location_on
+    #current.flex.row.end-h
+        span#weathericon
+        #temperature-wrapper.flex-row.center-vh
+            span#temperature
+            span.mdi.mdi-temperature-celsius
+
+append scripts
+    script(src="./scripts/weather.js")

@@ -1,0 +1,13 @@
+html, body, #main-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%; }
+
+body {
+  margin: 0;
+  padding: 20px;
+  height: calc(100% - 40px);
+  width: calc(100% - 40px);
+  color: white;
+  background-color: #222222;
+  font-family: 'Lato', sans-serif; }

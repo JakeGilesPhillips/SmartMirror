@@ -1,0 +1,14 @@
+append styles 
+  link(rel='stylesheet', href='./styles/spotify.css')
+
+#spotify-information.flex.column.center-vh
+    img#album-art
+    span#artist
+    span#track
+    #progress.flex.row.center-vh
+        span#elapsed
+        span#spacer /
+        span#total
+
+append scripts
+    script(src="./scripts/spotify.js")

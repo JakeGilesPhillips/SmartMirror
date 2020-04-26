@@ -1,0 +1,25 @@
+{
+    "name": "smart-mirror",
+    "version": "0.1.0",
+    "description": "Smart Mirror application with web interface.",
+    "main": "server.js",
+    "author": "Jake Giles-Phillips",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^0.19.2",
+        "body-parser": "^1.19.0",
+        "cookie-parser": "^1.4.5",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "git": "^0.1.5",
+        "path": "^0.12.7",
+        "pug": "^2.0.4"
+    },
+    "devDependencies": {
+        "gulp": "^4.0.2",
+        "gulp-clean": "^0.4.0",
+        "gulp-pug": "^4.0.1",
+        "gulp-sass": "^4.1.0",
+        "gulp-string-replace": "^1.1.2"
+    }
+}

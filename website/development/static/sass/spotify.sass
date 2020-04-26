@@ -1,0 +1,46 @@
+#spotify-information 
+    position: absolute
+    top: 60%
+    left: 50%
+    transform: translate(-50%, -50%)
+    opacity: 0.0
+    transition: .4s
+    transition-timing-function: ease-in
+
+    &.show 
+        top: 50%
+        opacity: 1.0
+        transition-timing-function: ease-out
+
+    #album-art 
+        width: 150px
+
+
+    #artist 
+        font-size: 30pt
+        font-weight: 300
+        text-align: center
+
+    #track 
+        font-size: 18pt
+        font-weight: 100
+        text-align: center
+
+
+    #progress 
+        padding: 10px 0
+
+        #elapsed 
+            font-size: 15pt
+            font-weight: 100
+            opacity: 0.8
+            text-align: center
+
+        #total 
+            font-size: 15pt
+            font-weight: 300
+            text-align: center
+
+        #spacer 
+            padding: 0 4px
+            opacity: 0.8

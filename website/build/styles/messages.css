@@ -1,0 +1,10 @@
+#welcome-message {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100px;
+  width: 100%; }
+  #welcome-message #message {
+    font-size: 30pt;
+    font-weight: 100;
+    text-align: center; }
