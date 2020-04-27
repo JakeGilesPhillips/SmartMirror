@@ -5,7 +5,10 @@ $(document).ready(() => {
 var spotify = {
     refresh: '{serverURL}/spotify/refresh',
     playing: '{serverURL}/spotify/user/playing',
-    playstate: '{serverURL}/spotify/user/playstate'
+    playstate: '{serverURL}/spotify/user/playstate',
+    volume: '{serverURL}/spotify/volume',
+    volumeup: '{serverURL}/spotify/volume/up',
+    volumedown: '{serverURL}/spotify/volume/down'
 };
 var currentID = null;
 
@@ -40,6 +43,16 @@ function pollSpotify()
 function updatePlaystate(state)
 {
     $.ajax({ method: 'GET', url: `${spotify.playstate}?state=${state}` });
+}
+
+function updateVolume(value)
+{
+    if (isNaN(parseInt(value)))
+    {
+        if (value == "up") { $.ajax({ method: 'GET', url: spotify.volumeup }); }
+        if (value == "down") { $.ajax({ method: 'GET', url: spotify.volumedown }); }
+    }
+    else { $.ajax({ method: 'GET', url: `${spotify.volume}?volume=${parseInt(value)}` }); }
 }
 
 function refreshSpotifyLogin() {

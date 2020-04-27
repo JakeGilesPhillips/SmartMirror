@@ -5,8 +5,12 @@ var sass = require('gulp-sass');
 var clean = require('gulp-clean');
 var replace = require('gulp-string-replace');
 
-var config = require('./config');
-var serverURL = `${config.server.path}:${config.server.port}`;
+var prodconfig = require('./config');
+var devconfig = require('./dev_config');
+
+var config = null;
+var serverURL = null;
+
 
 gulp.task('build-folder', async () =>
 {
@@ -20,23 +24,47 @@ gulp.task('clean', () =>
         .pipe(clean({ force: true }));
 });
 
-gulp.task('compile-pug', () =>
+gulp.task('build-dev', async () => 
+{
+    config = devconfig;
+    return compile();
+});
+
+gulp.task('build', () =>
+{
+    config = prodconfig;
+    return compile();
+});
+
+async function compile()
+{
+    
+    serverURL = `${config.server.path}:${config.server.port}`;
+    return Promise.all([
+        compilePug(),
+        compileSass(),
+        copyContent(),
+    ]);
+}
+
+async function compilePug() 
 {
     return gulp.src('./website/development/views/index.pug')
     .pipe(replace(`#main-wrapper`, `#main-wrapper.rotate-${config.web_application.orientation}`))
     .pipe(pug({ pretty: true }))
     .pipe(replace('{webcamstream}', config.web_application.webcam))
     .pipe(gulp.dest('./website/build'))
-});
+};
 
-gulp.task('compile-sass', () =>
+async function compileSass()
 {
+    
     return gulp.src('./website/development/static/sass/**/*.sass')
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(gulp.dest('./website/build/styles'));
-});
-
-gulp.task('copy-content', () =>
+}
+    
+async function copyContent() 
 {
     return Promise.all([
         gulp.src('./website/development/static/images/**/*')
@@ -46,6 +74,7 @@ gulp.task('copy-content', () =>
             .pipe(replace('{serverURL}', serverURL))
             .pipe(gulp.dest('./website/build/scripts')),
     ]);
-});
+};
 
-gulp.task('default', gulp.series('build-folder', 'clean', ['compile-pug', 'compile-sass'], 'copy-content'));
+gulp.task('default', gulp.series('build-folder', 'clean', 'build'));
+gulp.task('dev', gulp.series('build-folder', 'clean', 'build-dev'));

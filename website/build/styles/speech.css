@@ -1,10 +1,11 @@
 #speech-recognition {
   position: absolute;
-  bottom: 100px;
+  bottom: 230px;
   left: 50%;
-  transform: translateX(-50%); }
-  #speech-recognition #listening {
-    opacity: 0.0;
-    transition: .4s; }
-    #speech-recognition #listening.show {
-      opacity: 1.0; }
+  transform: translateX(-50%);
+  opacity: 0.0;
+  transition: .4s; }
+  #speech-recognition.show {
+    opacity: 1.0; }
+  #speech-recognition #lis {
+    font-family: 'Lato', sans-serif; }

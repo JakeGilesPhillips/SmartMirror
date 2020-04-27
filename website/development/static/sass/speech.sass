@@ -1,12 +1,14 @@
 #speech-recognition
     position: absolute
-    bottom: 100px
+    bottom: 230px
     left: 50%
     transform: translateX(-50%)
+    opacity: 0.0
+    transition: .4s
 
-    #listening
-        opacity: 0.0
-        transition: .4s
+    &.show 
+        opacity: 1.0
 
-        &.show 
-            opacity: 1.0
+    #lis
+        tening
+        font-family: 'Lato', sans-serif

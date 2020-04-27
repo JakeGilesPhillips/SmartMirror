@@ -3,9 +3,12 @@ $(document).ready(() => {
 });
 
 var spotify = {
-    refresh: 'http://192.168.0.17:3000/spotify/refresh',
-    playing: 'http://192.168.0.17:3000/spotify/user/playing',
-    playstate: 'http://192.168.0.17:3000/spotify/user/playstate'
+    refresh: 'http://localhost:3000/spotify/refresh',
+    playing: 'http://localhost:3000/spotify/user/playing',
+    playstate: 'http://localhost:3000/spotify/user/playstate',
+    volume: 'http://localhost:3000/spotify/volume',
+    volumeup: 'http://localhost:3000/spotify/volume/up',
+    volumedown: 'http://localhost:3000/spotify/volume/down'
 };
 var currentID = null;
 
@@ -42,6 +45,16 @@ function updatePlaystate(state)
     $.ajax({ method: 'GET', url: `${spotify.playstate}?state=${state}` });
 }
 
+function updateVolume(value)
+{
+    if (isNaN(parseInt(value)))
+    {
+        if (value == "up") { $.ajax({ method: 'GET', url: spotify.volumeup }); }
+        if (value == "down") { $.ajax({ method: 'GET', url: spotify.volumedown }); }
+    }
+    else { $.ajax({ method: 'GET', url: `${spotify.volume}?volume=${parseInt(value)}` }); }
+}
+
 function refreshSpotifyLogin() {
     $.ajax({
         method: 'GET',
@@ -53,7 +66,7 @@ function refreshSpotifyLogin() {
             }
             else {
                 // Else Refresh page to reinstate login
-                window.location.href = 'http://192.168.0.17:3000';
+                window.location.href = 'http://localhost:3000';
             }
         }
     });

@@ -44,6 +44,15 @@ function initialiseAnnyang()
         ":command music": sendToSpotify,
         ":command song": sendToSpotify,
 
+        "volume :command": adjustVolume,
+        "music :command": adjustVolume,
+        "turn music :command": adjustVolume,
+        "turn volume :command": adjustVolume,
+        "turn the volume :command": adjustVolume,
+        "turn the music :command": adjustVolume,
+        "set (the) volume to :command": adjustVolume,
+        "volume to :command": adjustVolume,
+
         ":command camera": toggleCamera,
         ":command webcam": toggleCamera,
 
@@ -54,7 +63,7 @@ function initialiseAnnyang()
         "(mirror mirror on the wall) who's the fairest of them all": fairestOfThemAll
     });
     
-    annyang.start({ continuous: false });
+    annyang.start({ continuous: true });
     annyang.addCallback('result', (result) => console.log(result));
 
     setInterval(doCooldown, 100);
@@ -64,14 +73,14 @@ function enableAnnyang(override)
 {
     enabled = true;
     cooldown = override | 10000;
-    $("#speech-recognition #listening").addClass('show');
+    $("#speech-recognition").addClass('show');
 }
 
 function disableAnnyang()
 {
     enabled = false;
     cooldown = 0;
-    $("#speech-recognition #listening").removeClass('show');
+    $("#speech-recognition").removeClass('show');
 }
 
 function doCooldown()
@@ -126,8 +135,25 @@ function sendToSpotify(command)
 {
     if (enabled)
     {
+        if (command == "stop") { command = "pause"; }
         updatePlaystate(command);
         disableAnnyang();
+    }
+}
+
+function adjustVolume(command)
+{
+    // Set word to number 
+    command = mapNumbers(command);
+
+    // Force commands to be one key word
+    if (["up", "higher", "loud", "louder"].includes(command)) { command = "up"; }
+    if (["down", "lower", "quiet", "quieter"].includes(command)) { command = "down"; }
+
+    // Check for key word or number 
+    if (enabled && (["up", "down"].includes(command) || !isNaN(parseInt(command))))
+    {
+        updateVolume(command);
     }
 }
 
@@ -177,4 +203,23 @@ function toggleCamera(command)
                 }
         }
     }
+}
+
+function mapNumbers(word)
+{
+    switch (word)
+    {
+        case "ten": return "10"
+        case "nine": return "9"
+        case "eight": return "8"
+        case "seven": return "7"
+        case "six": return "6"
+        case "five": return "5"
+        case "four": return "4"
+        case "three": return "3"
+        case "two": return "2"
+        case "one": return "1"
+        case "zero": return "0"
+    }
+    return word;
 }

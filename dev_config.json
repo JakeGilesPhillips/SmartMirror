@@ -1,0 +1,31 @@
+{
+    "server": 
+    {
+        "path": "http://localhost",
+        "port": 3000
+    },
+    "web_application": 
+    {
+        "path": "http://localhost:8888/Personal/SmartMirror/SmartMirror/website/build/",
+        "webcam": "http://192.168.0.17:8085?action=stream",
+        "orientation": 270
+    },
+    "apis":
+    {
+        "weather": 
+        {
+            "apikey": "20c29e56aca37f267030572062582ef3",
+            "location": "Bristol,uk"
+        },
+        "spotify":
+        {
+            "client_id": "5dee9a8e192844db98c1936d0a2e58b3",
+            "client_secret": "adcc8af365a14fe2b8f84cbdc267f401",
+            "scopes": "user-read-private user-read-email user-read-playback-state user-modify-playback-state"
+        },
+        "speech":
+        {
+
+        }
+    }
+}

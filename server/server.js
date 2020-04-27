@@ -13,7 +13,7 @@ const weather = require('./modules/weather');
 const voicecontrol = require('./modules/voicecontrol');
 
 /** CREATE APP */
-var config = require('../config.json');
+var config = require('../dev_config.json');
 var app  = express();
 
 /** SETUP APP */
@@ -69,6 +69,15 @@ app.get('/spotify/user/playing', function(req, res, next) {
 });
 app.get('/spotify/user/playstate', function(req, res, next) {
     spotify.playstate(req, res);
+});
+app.get('/spotify/volume', function (req, res, next) {
+    spotify.volume(req, res);
+});
+app.get('/spotify/volume/up', function (req, res, next) {
+    spotify.volumeup(req, res);
+});
+app.get('/spotify/volume/down', function (req, res, next) {
+    spotify.volumedown(req, res);
 });
 
 function logger(req, res, next)
