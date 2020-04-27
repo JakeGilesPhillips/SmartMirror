@@ -12,9 +12,9 @@ var speech = new SpeechSynthesisUtterance();
 function initialiseAnnyang()
 {
     annyang.addCommands({
-        "hey mirror": () => enableAnnyang(),
-        "mirror (mirror)": () => enableAnnyang(),
-        "oi cunt": () => enableAnnyang(),
+        "hey mirror": enableAnnyang,
+        "mirror mirror": enableAnnyang,
+        "oi cunt": enableAnnyang,
 
         "what is *question": what,
         "whats *question": what,
@@ -47,10 +47,11 @@ function initialiseAnnyang()
         ":command camera": toggleCamera,
         ":command webcam": toggleCamera,
 
-        "(mirror mirror) who's at the door": forceWebcam,
-        "(mirror mirror) show me who's at the door": forceWebcam,
+        // "(mirror mirror) who's at the door": forceWebcam,
+        // "(mirror mirror) show me who's at the door": forceWebcam,
 
-        "(mirror mirror on the wall), who is the fairest of them all": fairestOfThemAll
+        // "(mirror mirror on the wall) who is the fairest of them all": fairestOfThemAll,
+        // "(mirror mirror on the wall) who's the fairest of them all": fairestOfThemAll
     });
     
     annyang.start({ continuous: false });

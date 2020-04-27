@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /** SETUP PRE-REQUISITES */
 const cors    = require('cors'); 
 const axios   = require('axios'); 
