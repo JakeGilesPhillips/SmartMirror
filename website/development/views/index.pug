@@ -23,11 +23,12 @@ html
 
   body
     #main-wrapper 
+        include ./modules/webcam
         include ./modules/datetime
         include ./modules/weather
         include ./modules/spotify
-        include ./modules/speech
         include ./modules/messages
+        include ./modules/speech
 
   block scripts
     //- script(src="./scripts/main.js")

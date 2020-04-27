@@ -17,6 +17,8 @@
   </head>
   <body>
     <div class="rotate-0" id="main-wrapper"> 
+      <link rel="stylesheet" href="./styles/webcam.css">
+      <div class="flex center-vh" id="webcam"><img class="stream" src="http://192.168.0.17:8085?action=stream"></div>
       <link rel="stylesheet" href="./styles/datetime.css">
       <div class="flex column start-h start-v" id="date-time">
         <div class="flex row start-h center-v" id="date"><span id="long-date"></span></div>
@@ -36,13 +38,13 @@
         <div class="flex row center-vh" id="progress"><span id="elapsed"></span><span id="spacer">/</span><span id="total"></span></div>
       </div>
       <script src="./scripts/spotify.js"></script>
+      <link rel="stylesheet" href="./styles/messages.css">
+      <div class="flex center-vh" id="welcome-message"><span id="message"></span></div>
+      <script src="./scripts/messages.js"></script>
       <link rel="stylesheet" href="./styles/speech.css">
       <div class="flex center-vh" id="speech-recognition"><span id="listening">Listening...</span></div>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
       <script src="./scripts/speech.js"></script>
-      <link rel="stylesheet" href="./styles/messages.css">
-      <div class="flex center-vh" id="welcome-message"><span id="message"></span></div>
-      <script src="./scripts/messages.js"></script>
     </div>
   </body>
 </html>

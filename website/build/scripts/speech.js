@@ -41,6 +41,9 @@ function initialiseAnnyang()
         "Tell Spotify to :command": sendToSpotify,
         ":command music": sendToSpotify,
         ":command song": sendToSpotify,
+
+        ":command camera": toggleCamera,
+        ":command webcam": toggleCamera
     });
     
     annyang.start({ continuous: false });
@@ -117,5 +120,24 @@ function sendToSpotify(command)
     {
         updatePlaystate(command);
         disableAnnyang();
+    }
+}
+
+function toggleCamera(command) 
+{
+    switch (command)
+    {
+        case "show":
+        case "enable":
+            {
+                $("#webcam").addClass("show");
+                return disableAnnyang();
+            }
+        case "hide":
+        case "disable":
+            {
+                $("#webcam").removeClass("show");
+                return disableAnnyang();
+            }
     }
 }
