@@ -6,7 +6,8 @@
     },
     "web_application": 
     {
-        "path": "http://localhost/smartmirror"
+        "path": "http://localhost/smartmirror",
+        "orientation": 0
     },
     "apis":
     {

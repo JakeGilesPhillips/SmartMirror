@@ -1,3 +1,4 @@
+var fs = require('fs');
 var gulp = require('gulp');
 var pug = require('gulp-pug');
 var sass = require('gulp-sass');
@@ -6,6 +7,12 @@ var replace = require('gulp-string-replace');
 
 var config = require('./config');
 var serverURL = `${config.server.path}:${config.server.port}`;
+
+gulp.task('build-folder', async () =>
+{
+    if (!fs.existsSync("./website/build")) { return fs.mkdirSync("./website/build"); }
+    else return null;
+});
 
 gulp.task('clean', () =>
 {   
@@ -16,6 +23,7 @@ gulp.task('clean', () =>
 gulp.task('compile-pug', () =>
 {
     return gulp.src('./website/development/views/**/*.pug')
+        .pipe(replace(`#main-wrapper`, `#main-wrapper.rotate-${config.web_application.orientation}`))
         .pipe(pug({ pretty: true }))
         .pipe(gulp.dest('./website/build'));
 });
@@ -35,8 +43,8 @@ gulp.task('copy-content', () =>
         
         gulp.src('./website/development/static/scripts/**/*.js')
             .pipe(replace('{serverURL}', serverURL))
-            .pipe(gulp.dest('./website/build/scripts'))
+            .pipe(gulp.dest('./website/build/scripts')),
     ]);
 });
 
-gulp.task('default', gulp.series('clean', ['compile-pug', 'compile-sass'], 'copy-content'));
+gulp.task('default', gulp.series('build-folder', 'clean', ['compile-pug', 'compile-sass'], 'copy-content'));
