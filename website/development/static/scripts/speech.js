@@ -50,7 +50,7 @@ function initialiseAnnyang()
         "(mirror mirror) who's at the door": forceWebcam,
         "(mirror mirror) show me who's at the door": forceWebcam,
 
-        "(mirror mirror on the wall), who is the fairest of them all": 
+        "(mirror mirror on the wall), who is the fairest of them all": fairestOfThemAll
     });
     
     annyang.start({ continuous: false });

@@ -12,7 +12,9 @@ var speech = new SpeechSynthesisUtterance();
 function initialiseAnnyang()
 {
     annyang.addCommands({
-        "mirror mirror": () => enableAnnyang(),
+        "hey mirror": () => enableAnnyang(),
+        "mirror (mirror)": () => enableAnnyang(),
+        "oi cunt": () => enableAnnyang(),
 
         "what is *question": what,
         "whats *question": what,
@@ -43,7 +45,12 @@ function initialiseAnnyang()
         ":command song": sendToSpotify,
 
         ":command camera": toggleCamera,
-        ":command webcam": toggleCamera
+        ":command webcam": toggleCamera,
+
+        "(mirror mirror) who's at the door": forceWebcam,
+        "(mirror mirror) show me who's at the door": forceWebcam,
+
+        "(mirror mirror on the wall), who is the fairest of them all": fairestOfThemAll
     });
     
     annyang.start({ continuous: false });
@@ -123,21 +130,50 @@ function sendToSpotify(command)
     }
 }
 
+function forceWebcam(command)
+{
+    enableAnnyang();
+    toggleCamera("show");
+}
+
+function fairestOfThemAll()
+{
+    switch (Math.floor(Math.random() * 10))
+    {
+        case 0: return speak("Fuck off you ugly cunt.")
+        case 1: return speak("You, you are. You are so fit.")
+        case 2: return speak("You are the fairest of them all, daddy!")
+        case 3: return speak("Definitely not you mate.")
+        case 4: return speak("Ummmmmmm, not you.")
+        case 5: return speak("Oh get over yourself.")
+        case 6: return speak("The answer to that question is definitely Jake.")
+        case 7: return speak("Your. Mum.")
+        case 8: return speak("Yeah not you mate, jog on.")
+        case 9: return speak("You sexy cunt you.")
+    }
+}
+
 function toggleCamera(command) 
 {
-    switch (command)
+    if (enabled)
     {
-        case "show":
-        case "enable":
-            {
-                $("#webcam").addClass("show");
-                return disableAnnyang();
-            }
-        case "hide":
-        case "disable":
-            {
-                $("#webcam").removeClass("show");
-                return disableAnnyang();
-            }
+        
+        switch (command)
+        {
+            case "show":
+            case "enable":
+                {
+                    $("#webcam").addClass("show");
+                    setTimeout(() => toggleCamera("hide"), 20000);
+                    return disableAnnyang();
+                }
+            case "hide":
+            case "close":
+            case "disable":
+                {
+                    $("#webcam").removeClass("show");
+                    return disableAnnyang();
+                }
+        }
     }
 }
