@@ -47,11 +47,11 @@ function initialiseAnnyang()
         ":command camera": toggleCamera,
         ":command webcam": toggleCamera,
 
-        // "(mirror mirror) who's at the door": forceWebcam,
-        // "(mirror mirror) show me who's at the door": forceWebcam,
+        "(mirror mirror) who's at the door": () => forceWebcam("show"),
+        "(mirror mirror) show me who's at the door": () => forceWebcam("show"),
 
-        // "(mirror mirror on the wall) who is the fairest of them all": fairestOfThemAll,
-        // "(mirror mirror on the wall) who's the fairest of them all": fairestOfThemAll
+        "(mirror mirror on the wall) who is the fairest of them all": fairestOfThemAll,
+        "(mirror mirror on the wall) who's the fairest of them all": fairestOfThemAll
     });
     
     annyang.start({ continuous: false });
@@ -134,7 +134,7 @@ function sendToSpotify(command)
 function forceWebcam(command)
 {
     enableAnnyang();
-    toggleCamera("show");
+    toggleCamera(command);
 }
 
 function fairestOfThemAll()
@@ -165,7 +165,7 @@ function toggleCamera(command)
             case "enable":
                 {
                     $("#webcam").addClass("show");
-                    setTimeout(() => toggleCamera("hide"), 20000);
+                    setTimeout(() => forceWebcam("hide"), 20000);
                     return disableAnnyang();
                 }
             case "hide":
