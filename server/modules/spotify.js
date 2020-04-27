@@ -1,6 +1,6 @@
 const axios = require('axios');
 const query = require('querystring');
-var config = require('../../dev_config.json');
+var config = require('../../config.json');
 
 const callback_uri = `${config.server.path}:${config.server.port}/spotify/callback`;
 const scopes = config.apis.spotify.scopes;

@@ -13,7 +13,7 @@ const weather = require('./modules/weather');
 const voicecontrol = require('./modules/voicecontrol');
 
 /** CREATE APP */
-var config = require('../dev_config.json');
+var config = require('../config.json');
 var app  = express();
 
 /** SETUP APP */
