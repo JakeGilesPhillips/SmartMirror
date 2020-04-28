@@ -5,6 +5,7 @@ $(document).ready(() =>
 
 var enabled = 0;
 var cooldown = 0;
+var cooldowntimeout = null;
 
 var voices = window.speechSynthesis.getVoices().filter(a => a.lang.includes("en"));
 var speech = new SpeechSynthesisUtterance();
@@ -59,13 +60,13 @@ function initialiseAnnyang()
         "show door (camera)": () => showWebcam("door"),
         "show (me) door": () => showWebcam("door"),
         "show (me the) door": () => showWebcam("door"),
-        "show lounge (camera)": () => showWebcam("door"),
-        "show (me) lounge": () => showWebcam("door"),
-        "show (me the) lounge": () => showWebcam("door"),
+        "show lounge (camera)": () => showWebcam("lounge"),
+        "show (me) lounge": () => showWebcam("lounge"),
+        "show (me the) lounge": () => showWebcam("lounge"),
 
-        "(mirror mirror) who's at the door": () => forceWebcam("show"),
-        "(mirror mirror) who is at the door": () => forceWebcam("show"),
-        "(mirror mirror) show me who's at the door": () => forceWebcam("show"),
+        "(mirror mirror) who's at the door": () => showWebcam("door"),
+        "(mirror mirror) who is at the door": () => showWebcam("door"),
+        "(mirror mirror) show me who's at the door": () => showWebcam("door"),
 
         "(mirror mirror on the wall) who is the fairest of them all": fairestOfThemAll,
         "(mirror mirror on the wall) who's the fairest of them all": fairestOfThemAll
@@ -73,14 +74,14 @@ function initialiseAnnyang()
     
     annyang.start({ continuous: true });
     annyang.addCallback('result', (result) => console.log(result));
-
-    setInterval(doCooldown, 100);
 }
 
 function enableAnnyang(override)
 {
     enabled = true;
     cooldown = override | 10000;
+    clearInterval(cooldowntimeout);
+    cooldowntimeout =  setInterval(doCooldown, 100);
     $("#speech-recognition").addClass('show');
 }
 
@@ -88,6 +89,7 @@ function disableAnnyang()
 {
     enabled = false;
     cooldown = 0;
+    clearInterval(cooldowntimeout);
     $("#speech-recognition").removeClass('show');
 }
 

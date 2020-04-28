@@ -1,11 +1,8 @@
 append styles 
   link(rel='stylesheet', href='./styles/webcam.css')
 
-#door.webcam.flex.center-vh
-  img.stream.rotate-180(src="{webcamstream0}")
-
-#lounge.webcam.flex.center-vh
-  img.stream(src="{webcamstream1}")
+#webcam.flex.center-vh
+  img#stream
 
 append scripts
   script(src="./scripts/webcam.js")
