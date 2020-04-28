@@ -59,13 +59,13 @@ function initialiseAnnyang()
         "show door (camera)": () => showWebcam("door"),
         "show (me) door": () => showWebcam("door"),
         "show (me the) door": () => showWebcam("door"),
-        "show lounge (camera)": () => showWebcam("door"),
-        "show (me) lounge": () => showWebcam("door"),
-        "show (me the) lounge": () => showWebcam("door"),
+        "show lounge (camera)": () => showWebcam("lounge"),
+        "show (me) lounge": () => showWebcam("lounge"),
+        "show (me the) lounge": () => showWebcam("lounge"),
 
-        "(mirror mirror) who's at the door": () => forceWebcam("show"),
-        "(mirror mirror) who is at the door": () => forceWebcam("show"),
-        "(mirror mirror) show me who's at the door": () => forceWebcam("show"),
+        "(mirror mirror) who's at the door": () => showWebcam("door"),
+        "(mirror mirror) who is at the door": () => showWebcam("door"),
+        "(mirror mirror) show me who's at the door": () => showWebcam("door"),
 
         "(mirror mirror on the wall) who is the fairest of them all": fairestOfThemAll,
         "(mirror mirror on the wall) who's the fairest of them all": fairestOfThemAll
