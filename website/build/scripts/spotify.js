@@ -3,12 +3,12 @@ $(document).ready(() => {
 });
 
 var spotify = {
-    refresh: 'http://localhost:3000/spotify/refresh',
-    playing: 'http://localhost:3000/spotify/user/playing',
-    playstate: 'http://localhost:3000/spotify/user/playstate',
-    volume: 'http://localhost:3000/spotify/volume',
-    volumeup: 'http://localhost:3000/spotify/volume/up',
-    volumedown: 'http://localhost:3000/spotify/volume/down'
+    refresh: 'http://192.168.0.17:3000/spotify/refresh',
+    playing: 'http://192.168.0.17:3000/spotify/user/playing',
+    playstate: 'http://192.168.0.17:3000/spotify/user/playstate',
+    volume: 'http://192.168.0.17:3000/spotify/volume',
+    volumeup: 'http://192.168.0.17:3000/spotify/volume/up',
+    volumedown: 'http://192.168.0.17:3000/spotify/volume/down'
 };
 var currentID = null;
 
@@ -66,7 +66,7 @@ function refreshSpotifyLogin() {
             }
             else {
                 // Else Refresh page to reinstate login
-                window.location.href = 'http://localhost:3000';
+                window.location.href = 'http://192.168.0.17:3000';
             }
         }
     });

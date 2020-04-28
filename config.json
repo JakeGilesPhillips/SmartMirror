@@ -7,8 +7,12 @@
     "web_application": 
     {
         "path": "http://192.168.0.17/smartmirror",
-        "webcam": "http://192.168.0.17:8085?action=stream",
-        "orientation": 270
+        "orientation": 90,
+        "webcams": 
+        {
+            "door": { "path": "http://192.168.0.17:8085?action=stream", "rotation": 180 },
+            "lounge": { "path": "http://192.168.0.17:8086?action=stream", "rotation": 0 }
+        } 
     },
     "apis":
     {

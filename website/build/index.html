@@ -16,9 +16,11 @@
     <script src="https://cdn.jsdelivr.net/npm/typer-js@5.0.1/typer.min.js"></script>
   </head>
   <body>
-    <div class="rotate-270" id="main-wrapper"> 
+    <div class="rotate-90" id="main-wrapper"> 
       <link rel="stylesheet" href="./styles/webcam.css">
-      <div class="flex center-vh" id="webcam"><img class="stream" src="http://192.168.0.17:8085?action=stream"></div>
+      <div class="webcam flex center-vh" id="door"><img class="stream" src="http://192.168.0.17:8085?action=stream"></div>
+      <div class="webcam flex center-vh" id="lounge"><img class="stream" src="http://192.168.0.17:8086?action=stream"></div>
+      <script src="./scripts/webcam.js"></script>
       <link rel="stylesheet" href="./styles/datetime.css">
       <div class="flex column start-h start-v" id="date-time">
         <div class="flex row start-h center-v" id="date"><span id="long-date"></span></div>

@@ -53,10 +53,17 @@ function initialiseAnnyang()
         "set (the) volume to :command": adjustVolume,
         "volume to :command": adjustVolume,
 
-        ":command camera": toggleCamera,
-        ":command webcam": toggleCamera,
+        "show camera": () => showWebcam("door"),
+        "show webcam": () => showWebcam("door"),
+        "show door (camera)": () => showWebcam("door"),
+        "show (me) door": () => showWebcam("door"),
+        "show (me the) door": () => showWebcam("door"),
+        "show lounge (camera)": () => showWebcam("door"),
+        "show (me) lounge": () => showWebcam("door"),
+        "show (me the) lounge": () => showWebcam("door"),
 
         "(mirror mirror) who's at the door": () => forceWebcam("show"),
+        "(mirror mirror) who is at the door": () => forceWebcam("show"),
         "(mirror mirror) show me who's at the door": () => forceWebcam("show"),
 
         "(mirror mirror on the wall) who is the fairest of them all": fairestOfThemAll,
@@ -157,12 +164,6 @@ function adjustVolume(command)
     }
 }
 
-function forceWebcam(command)
-{
-    enableAnnyang();
-    toggleCamera(command);
-}
-
 function fairestOfThemAll()
 {
     switch (Math.floor(Math.random() * 10))
@@ -180,29 +181,15 @@ function fairestOfThemAll()
     }
 }
 
-function toggleCamera(command) 
+function showWebcam(camera)
 {
-    if (enabled)
-    {
-        
-        switch (command)
-        {
-            case "show":
-            case "enable":
-                {
-                    $("#webcam").addClass("show");
-                    setTimeout(() => forceWebcam("hide"), 20000);
-                    return disableAnnyang();
-                }
-            case "hide":
-            case "close":
-            case "disable":
-                {
-                    $("#webcam").removeClass("show");
-                    return disableAnnyang();
-                }
-        }
-    }
+    showCamera(camera);
+    return disableAnnyang();
+}
+function hideWebcam(camera)
+{
+    hideCamera(camera);
+    return disableAnnyang();
 }
 
 function mapNumbers(word)

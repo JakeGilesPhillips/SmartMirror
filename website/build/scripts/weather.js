@@ -3,7 +3,7 @@ $(document).ready(() => {
 });
 
 var weather = {
-    forecast: 'http://localhost:3000/weather/bristol'
+    forecast: 'http://192.168.0.17:3000/weather/bristol'
 };
 
 function getWeather() {

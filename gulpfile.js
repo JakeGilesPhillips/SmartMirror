@@ -52,7 +52,8 @@ async function compilePug()
     return gulp.src('./website/development/views/index.pug')
     .pipe(replace(`#main-wrapper`, `#main-wrapper.rotate-${config.web_application.orientation}`))
     .pipe(pug({ pretty: true }))
-    .pipe(replace('{webcamstream}', config.web_application.webcam))
+    .pipe(replace('{webcamstream0}', config.web_application.webcams.door.path))
+    .pipe(replace('{webcamstream1}', config.web_application.webcams.lounge.path))
     .pipe(gulp.dest('./website/build'))
 };
 
