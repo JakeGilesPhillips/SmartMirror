@@ -12,6 +12,7 @@ var speech = new SpeechSynthesisUtterance();
 function initialiseAnnyang()
 {
     annyang.addCommands({
+        "jarvis": enableAnnyang,
         "hey mirror": enableAnnyang,
         "mirror mirror": enableAnnyang,
         "oi cunt": enableAnnyang,
